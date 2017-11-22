@@ -15,4 +15,10 @@ public class Pin {
     int getValue() {
         return value;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        assert o instanceof Pin;
+        return this.value == ((Pin) o).value;
+    }
 }
