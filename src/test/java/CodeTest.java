@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class CodeTest {
 
@@ -39,6 +40,11 @@ public class CodeTest {
         code2.set("1234");
 
         assertEquals(code1, code2);
+
+        Code code3 = new Code();
+        code3.set("5678");
+
+        assertNotEquals(code1, code3);
     }
 
 }

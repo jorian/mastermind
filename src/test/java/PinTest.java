@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class PinTest {
 
@@ -21,6 +22,12 @@ public class PinTest {
         pin2.setValue(1);
 
         assertEquals(pin1, pin2);
+
+
+        Pin pin3 = new Pin();
+        pin3.setValue(3);
+
+        assertNotEquals(pin1, pin3);
     }
 
     @Test(expected = IllegalArgumentException.class)
