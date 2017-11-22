@@ -9,7 +9,7 @@ public class Code {
         code = new Pin[4];
         char[] codeChars = codeString.toCharArray();
 
-        if (codeString.length() > 0) {
+        if (codeString.length() >= 1 && codeString.length() <= 4) {
             for (int i = 0; i < code.length; i++) {
                 code[i] = new Pin();
                 code[i].setValue(Character.getNumericValue(codeChars[i]));
