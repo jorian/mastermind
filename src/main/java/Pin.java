@@ -6,7 +6,10 @@ public class Pin {
     }
 
     public void setValue(int value) {
-        this.value = value;
+        if (value > 0) {
+            this.value = value;
+        } else
+            throw new IllegalArgumentException();
     }
 
     public int getValue() {
