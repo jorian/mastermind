@@ -30,4 +30,15 @@ public class CodeTest {
         code.set("123");
     }
 
+    @Test
+    public void testCodeEquality() {
+        Code code1 = new Code();
+        code1.set("1234");
+
+        Code code2 = new Code();
+        code2.set("1234");
+
+        assertEquals(code1, code2);
+    }
+
 }
