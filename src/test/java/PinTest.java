@@ -11,4 +11,12 @@ public class PinTest {
 
         assertEquals(4, pin.getValue());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void negativePinValueShouldThrowException() {
+        Pin pin = new Pin();
+        pin.setValue(-4);
+
+
+    }
 }
