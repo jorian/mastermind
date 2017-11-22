@@ -16,4 +16,10 @@ public class CodeTest {
         Code code = new Code();
         code.set("");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void codeCannotBeSetWithValueContainingMoreThanFourDigits() {
+        Code code = new Code();
+        code.set("12345");
+    }
 }
