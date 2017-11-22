@@ -22,4 +22,11 @@ public class CodeTest {
         Code code = new Code();
         code.set("12345");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void codeCannotBeSetWithThreeDigitValue() {
+        Code code = new Code();
+        code.set("123");
+    }
+
 }
