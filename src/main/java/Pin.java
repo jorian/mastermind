@@ -6,7 +6,7 @@ public class Pin {
     }
 
     public void setValue(int value) {
-        if (value > 0) {
+        if (value >= 1 && value <= 8) {
             this.value = value;
         } else
             throw new IllegalArgumentException();
