@@ -12,6 +12,17 @@ public class PinTest {
         assertEquals(4, pin.getValue());
     }
 
+    @Test
+    public void testPinEquality() {
+        Pin pin1 = new Pin();
+        pin1.setValue(1);
+
+        Pin pin2 = new Pin();
+        pin2.setValue(1);
+
+        assertEquals(pin1, pin2);
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void negativePinValueShouldThrowException() {
         Pin pin = new Pin();
