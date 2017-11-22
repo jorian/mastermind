@@ -18,7 +18,7 @@ public class GameTest {
         Code firstCode = game.getSecretCode();
 
         game.setSecretCode();
-        Code secondCode = game.setSecretCode();
+        Code secondCode = game.getSecretCode();
 
         assertNotEquals(firstCode, secondCode);
     }

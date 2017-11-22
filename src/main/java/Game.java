@@ -10,4 +10,10 @@ public class Game {
     public Code getSecretCode() {
         return secretCode;
     }
+
+    public void setSecretCode() {
+        Code code = new Code();
+        code.set("4567");
+        this.secretCode = code;
+    }
 }
