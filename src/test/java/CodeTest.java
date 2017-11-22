@@ -10,4 +10,10 @@ public class CodeTest {
 
         assertEquals(4, code.get().length);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void codeCannotBeSetWithEmptyValue() {
+        Code code = new Code();
+        code.set("");
+    }
 }
