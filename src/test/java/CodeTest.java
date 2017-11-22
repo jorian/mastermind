@@ -3,6 +3,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class CodeTest {
+
     @Test
     public void codeExistsOfFourPins() {
         Code code = new Code();

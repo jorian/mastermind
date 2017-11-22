@@ -16,7 +16,6 @@ public class PinTest {
     public void negativePinValueShouldThrowException() {
         Pin pin = new Pin();
         pin.setValue(-4);
-
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -27,7 +26,6 @@ public class PinTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void pinValueHigherThanEightShouldThrowException() {
-
         Pin pin = new Pin();
         pin.setValue(9);
     }

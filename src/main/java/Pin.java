@@ -5,14 +5,14 @@ public class Pin {
 
     }
 
-    public void setValue(int value) {
+    void setValue(int value) {
         if (value >= 1 && value <= 8) {
             this.value = value;
         } else
             throw new IllegalArgumentException();
     }
 
-    public int getValue() {
+    int getValue() {
         return value;
     }
 }

@@ -18,7 +18,7 @@ public class Code {
             throw new IllegalArgumentException();
     }
 
-    public Pin[] get() {
+    Pin[] get() {
         return code;
     }
 }
