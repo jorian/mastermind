@@ -21,4 +21,18 @@ public class Code {
     Pin[] get() {
         return code;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        assert o instanceof Code;
+        Code other = ((Code) o);
+        Pin[] otherPins = other.get();
+
+        for (int i = 0; i < 4; i++) {
+            if (code[i].getValue() != otherPins[i].getValue()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
