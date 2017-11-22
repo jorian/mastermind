@@ -9,10 +9,13 @@ public class Code {
         code = new Pin[4];
         char[] codeChars = codeString.toCharArray();
 
-        for (int i = 0; i < code.length; i++) {
-            code[i] = new Pin();
-            code[i].setValue(Character.getNumericValue(codeChars[i]));
-        }
+        if (codeString.length() > 0) {
+            for (int i = 0; i < code.length; i++) {
+                code[i] = new Pin();
+                code[i].setValue(Character.getNumericValue(codeChars[i]));
+            }
+        } else
+            throw new IllegalArgumentException();
     }
 
     public Pin[] get() {
