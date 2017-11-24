@@ -9,7 +9,7 @@ public class Pin {
         if (value >= 1 && value <= 8) {
             this.value = value;
         } else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("pin value must be between 1 and 8 inclusive");
     }
 
     int getValue() {

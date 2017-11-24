@@ -28,6 +28,9 @@ public class Game {
         this.secretCode = code;
     }
 
+    /*
+    Evaluates the guess with the secretcode. Returns true if equal, false if not equal.
+     */
     public boolean evaluateGuess(Code guess) {
         if (round <= 12) {
             round++;

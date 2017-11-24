@@ -15,7 +15,7 @@ public class Code {
                 code[i].setValue(Character.getNumericValue(codeChars[i]));
             }
         } else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("code must have length of four");
     }
 
     Pin[] get() {
