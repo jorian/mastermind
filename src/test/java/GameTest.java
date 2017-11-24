@@ -45,6 +45,16 @@ public class GameTest {
         assertTrue(game.evaluateGuess(guess));
     }
 
+    @Test
+    public void guessCodeIsNotSameAsSecretCodeShouldEvaluateToFalse() {
+        Game game = new MockGame();
+
+        Code guess = new Code();
+        guess.set("1834");
+
+        assertFalse(game.evaluateGuess(guess));
+    }
+
 
     class MockGame extends Game {
 
