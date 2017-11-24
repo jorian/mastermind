@@ -55,6 +55,16 @@ public class GameTest {
         assertFalse(game.evaluateGuess(guess));
     }
 
+    @Test(expected = IllegalStateException.class)
+    public void scoreCannotHaveMoreThanFourScorePins() {
+        Score score = new Score();
+        score.addWhitePin;
+        score.addWhitePin;
+        score.addWhitePin;
+        score.addWhitePin;
+        score.addWhitePin;
+    }
+
 
     class MockGame extends Game {
 
