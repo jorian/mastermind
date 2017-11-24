@@ -29,7 +29,9 @@ public class GameTest {
         Game game = new Game();
 
         for (int i = 0; i <= 13; i++) { //play 13 rounds
-            game.evaluateGuess();
+            Code code = new Code();
+            code.set("1234");
+            game.evaluateGuess(code);
         }
     }
 

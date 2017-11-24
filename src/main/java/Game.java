@@ -28,10 +28,11 @@ public class Game {
         this.secretCode = code;
     }
 
-    public void evaluateGuess() {
-        if (round <= 12)
+    public boolean evaluateGuess(Code guess) {
+        if (round <= 12) {
             round++;
-        else
+            return guess.equals(secretCode);
+        } else
             throw new IllegalStateException("game cannot have more than 12 rounds");
     }
 }
