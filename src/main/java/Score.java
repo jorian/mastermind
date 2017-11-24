@@ -26,4 +26,16 @@ public class Score {
         }
         return this;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        assert o instanceof Score;
+
+        for (int i = 0; i < 4; i++) {
+            if (((Score) o).score[i] != null && this.score[i] != null)
+                if (! (this.score[i].equals(((Score) o).score[i])) )
+                    return false;
+        }
+        return true;
+    }
 }

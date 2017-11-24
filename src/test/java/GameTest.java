@@ -55,7 +55,7 @@ public class GameTest {
 
         Score actual = game.evaluateGuess(guessCode);
 
-        assertEquals(expected, actual);
+        assertTrue(expected.equals(actual));
     }
 
     class MockGame extends Game {

@@ -7,4 +7,5 @@ public class ScorePin extends Pin {
         } else
             throw new IllegalArgumentException("scorepin only has 0 or 1 as value");
     }
+
 }

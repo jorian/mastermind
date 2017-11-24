@@ -31,10 +31,12 @@ public class Game {
     /*
     Evaluates the guess with the secretcode. Returns true if equal, false if not equal.
      */
-    public boolean evaluateGuess(Code guess) {
+    public Score evaluateGuess(Code guess) {
         if (round <= 12) {
+            Score result = new Score();
+            result.addPin(0);
             round++;
-            return guess.equals(secretCode);
+            return result;
         } else
             throw new IllegalStateException("game cannot have more than 12 rounds");
     }
