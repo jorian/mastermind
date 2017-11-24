@@ -1,8 +1,6 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class GameTest {
 
@@ -35,26 +33,6 @@ public class GameTest {
         }
     }
 
-    @Test
-    public void guessCodeSameAsSecretCodeShouldEvaluateToTrue() {
-        Game game = new MockGame();
-
-        Code guess = new Code();
-        guess.set("1234");
-
-        assertTrue(game.evaluateGuess(guess));
-    }
-
-    @Test
-    public void guessCodeIsNotSameAsSecretCodeShouldEvaluateToFalse() {
-        Game game = new MockGame();
-
-        Code guess = new Code();
-        guess.set("1834");
-
-        assertFalse(game.evaluateGuess(guess));
-    }
-
     @Test(expected = IllegalStateException.class)
     public void scoreCannotHaveMoreThanFourScorePins() {
         Score score = new Score();
@@ -66,6 +44,19 @@ public class GameTest {
 
     }
 
+    @Test
+    public void scoreShouldReturnOneWhitePin() {
+        Game game = new MockGame();
+        Code guessCode = new Code();
+        guessCode.set("4567");
+
+        Score expected = new Score();
+        expected.addPin(0);
+
+        Score actual = game.evaluateGuess(guessCode);
+
+        assertEquals(expected, actual);
+    }
 
     class MockGame extends Game {
 
