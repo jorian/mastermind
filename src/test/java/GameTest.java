@@ -58,11 +58,11 @@ public class GameTest {
     @Test(expected = IllegalStateException.class)
     public void scoreCannotHaveMoreThanFourScorePins() {
         Score score = new Score();
-        score.addWhitePin;
-        score.addWhitePin;
-        score.addWhitePin;
-        score.addWhitePin;
-        score.addWhitePin;
+        score.addWhitePin();
+        score.addWhitePin();
+        score.addWhitePin();
+        score.addWhitePin();
+        score.addWhitePin();
     }
 
 
