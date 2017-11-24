@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Game {
-    private Code secretCode;
+    protected Code secretCode;
     private int round;
 
     Game() {

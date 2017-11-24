@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class GameTest {
 
@@ -29,6 +30,27 @@ public class GameTest {
 
         for (int i = 0; i <= 13; i++) { //play 13 rounds
             game.evaluateGuess();
+        }
+    }
+
+    @Test
+    public void guessCodeSameAsSecretCodeShouldEvaluateToTrue() {
+        Game game = new MockGame();
+
+        Code guess = new Code();
+        guess.set("1234");
+
+        assertTrue(game.evaluateGuess(guess));
+    }
+
+
+    class MockGame extends Game {
+
+        @Override
+        public void setSecretCode() {
+            Code code = new Code();
+            code.set("1234");
+            this.secretCode = code;
         }
     }
 }
