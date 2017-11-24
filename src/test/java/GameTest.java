@@ -27,7 +27,7 @@ public class GameTest {
     public void gameCannotHaveMoreThanTwelveRounds() {
         Game game = new Game();
 
-        for (int i = 0; i < 13; i++) { //play 13 rounds
+        for (int i = 0; i <= 13; i++) { //play 13 rounds
             game.evaluateGuess();
         }
     }
