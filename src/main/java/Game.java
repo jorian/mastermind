@@ -19,7 +19,6 @@ public class Game {
             int j = 1 + rnd.nextInt(8);
             sb.append(j);
         }
-        System.out.println(sb.toString());
 
         Code code = new Code();
         code.set(sb.toString());

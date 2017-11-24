@@ -1,13 +1,12 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class GameTest {
 
     @Test
-    public void gameShouldHaveSecretCodeSet() {
+    public void newGameShouldHaveSecretCodeSet() {
         Game game = new Game();
         assertNotNull(game.getSecretCode());
     }
