@@ -1,5 +1,5 @@
 public class Pin {
-    private int value;
+    protected int value;
 
     Pin() {
 

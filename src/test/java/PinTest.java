@@ -52,6 +52,6 @@ public class PinTest {
     @Test(expected = IllegalArgumentException.class)
     public void scorePinShouldNotHaveValueHigherThanOne() {
         ScorePin scorePin = new ScorePin();
-        scorePin.set(2);
+        scorePin.setValue(2);
     }
 }
