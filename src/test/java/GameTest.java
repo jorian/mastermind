@@ -13,10 +13,10 @@ public class GameTest {
     @Test
     public void eachNewSecretCodeShouldBeRandom() {
         Game game = new Game();
-        game.setSecretCode();
+        game.setSecretCode(game.generateRandomCode());
         Code firstCode = game.getSecretCode();
 
-        game.setSecretCode();
+        game.setSecretCode(game.generateRandomCode());
         Code secondCode = game.getSecretCode();
 
         assertFalse(firstCode.equals(secondCode));
@@ -64,7 +64,7 @@ public class GameTest {
     class MockGame extends Game {
 
         @Override
-        public void setSecretCode() {
+        public void setSecretCode(Code secret) {
             Code code = new Code();
             code.set("1234");
             this.secretCode = code;

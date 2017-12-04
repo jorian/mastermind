@@ -25,8 +25,11 @@ public class EvaluationTest {
         expected.addPin(1);
         expected.addPin(0);
 
-        Game game = new MockGame();
-        game.setSecretCode();
+        Code secret = new Code();
+        secret.set("1234");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
 
         Code guess = new Code();
         guess.set(guessString);
@@ -53,16 +56,16 @@ public class EvaluationTest {
         expected.addPin(0);
         expected.addPin(0);
 
-        Game game = new MockGame();
-        game.setSecretCode();
+        Code secret = new Code();
+        secret.set("1234");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
 
         Code guess = new Code();
         guess.set(guessString);
 
         Score actual = game.evaluateGuess(guess);
-
-        System.out.println("Actual:   " + actual.toString());
-        System.out.println("Expected: " + expected.toString());
 
         assertTrue(actual.equals(expected));
     }
@@ -85,16 +88,16 @@ public class EvaluationTest {
         expected.addPin(0);
         expected.addPin(0);
 
-        Game game = new MockGame();
-        game.setSecretCode();
+        Code secret = new Code();
+        secret.set("1234");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
 
         Code guess = new Code();
         guess.set(guessString);
 
         Score actual = game.evaluateGuess(guess);
-
-        System.out.println("Actual:   " + actual.toString());
-        System.out.println("Expected: " + expected.toString());
 
         assertTrue(actual.equals(expected));
     }
@@ -114,16 +117,16 @@ public class EvaluationTest {
         Score expected = new Score();
         expected.addPin(1);
 
-        Game game = new MockGame();
-        game.setSecretCode();
+        Code secret = new Code();
+        secret.set("1234");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
 
         Code guess = new Code();
         guess.set(guessString);
 
         Score actual = game.evaluateGuess(guess);
-
-        System.out.println("Actual:   " + actual.toString());
-        System.out.println("Expected: " + expected.toString());
 
         assertTrue(actual.equals(expected));
     }
@@ -140,33 +143,55 @@ public class EvaluationTest {
          */
 
         String guessString = "1234";
+
         Score expected = new Score();
         expected.addPin(1);
         expected.addPin(1);
         expected.addPin(1);
         expected.addPin(1);
 
-        Game game = new MockGame();
-        game.setSecretCode();
+        Code secret = new Code();
+        secret.set("1234");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
 
         Code guess = new Code();
         guess.set(guessString);
 
         Score actual = game.evaluateGuess(guess);
 
-        System.out.println("Actual:   " + actual.toString());
-        System.out.println("Expected: " + expected.toString());
-
         assertTrue(actual.equals(expected));
     }
 
-    class MockGame extends Game {
+    @Test
+    public void case_6() {
+        /*
+        The score should have 0 red pins and 2 white pins.
 
-        @Override
-        public void setSecretCode() {
-            Code code = new Code();
-            code.set("1234");
-            this.secretCode = code;
-        }
+        secret code:  1224
+        guessed code: 2672
+
+        '2' and '2' are both on a different position, rest is not in secret code.
+         */
+
+        String guessString = "2672";
+
+        Score expected = new Score();
+        expected.addPin(0);
+        expected.addPin(0);
+
+        Code secret = new Code();
+        secret.set("1224");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
+
+        Code guess = new Code();
+        guess.set(guessString);
+
+        Score actual = game.evaluateGuess(guess);
+
+        assertTrue(actual.equals(expected));
     }
 }

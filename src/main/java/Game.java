@@ -5,7 +5,7 @@ public class Game {
     private int round;
 
     Game() {
-        setSecretCode();
+        setSecretCode(generateRandomCode());
         round = 0;
     }
 
@@ -13,7 +13,11 @@ public class Game {
         return secretCode;
     }
 
-    public void setSecretCode() {
+    public void setSecretCode(Code secret) {
+        this.secretCode = secret;
+    }
+
+    public Code generateRandomCode() {
         Random rnd = new Random();
         StringBuilder sb = new StringBuilder();
 
@@ -25,7 +29,7 @@ public class Game {
         Code code = new Code();
         code.set(sb.toString());
 
-        this.secretCode = code;
+        return code;
     }
 
     /*
