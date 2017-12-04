@@ -33,7 +33,38 @@ public class EvaluationTest {
 
         Score actual = game.evaluateGuess(guess);
 
-        assertEquals(expected, actual);
+        assertTrue(actual.equals(expected));
+    }
+
+    @Test
+    public void case_2() {
+        /*
+        The score should have 1 red pin and 2 white pins.
+
+        secret code:  1234
+        guessed code: 8241
+
+        '1' is on the same position, '3' and '4' is in the secret code but not on the same place.
+         */
+
+        String guessString = "8241";
+        Score expected = new Score();
+        expected.addPin(1);
+        expected.addPin(0);
+        expected.addPin(0);
+
+        Game game = new MockGame();
+        game.setSecretCode();
+
+        Code guess = new Code();
+        guess.set(guessString);
+
+        Score actual = game.evaluateGuess(guess);
+
+        System.out.println("Actual:   " + actual.toString());
+        System.out.println("Expected: " + expected.toString());
+
+        assertTrue(actual.equals(expected));
     }
 
     class MockGame extends Game {

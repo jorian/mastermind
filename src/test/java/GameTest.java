@@ -55,6 +55,9 @@ public class GameTest {
 
         Score actual = game.evaluateGuess(guessCode);
 
+        System.out.println("Actual:   " + actual.toString());
+        System.out.println("Expected: " + expected.toString());
+
         assertTrue(expected.equals(actual));
     }
 
