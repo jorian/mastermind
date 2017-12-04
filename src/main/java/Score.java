@@ -46,7 +46,9 @@ public class Score {
             If code 1 has 3 values and code 2 has 2 values, we need to make sure that
             the two codes are not equal.
 
-            If one score pin is null but the other isn't, then the codes are not equal.
+            If one score pin is null but the other isn't, then the codes are not equal. Boolean form:
+            (P AND NOT Q) V (NOT P AND Q)
+
              */
             if ( (((Score) o).score[i] == null && this.score[i] != null) ||
                     (((Score) o).score[i] != null && this.score[i] == null)  )
