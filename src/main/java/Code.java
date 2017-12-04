@@ -35,4 +35,14 @@ public class Code {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        for (Pin p : code) {
+            output.append(p.value);
+        }
+
+        return output.toString();
+    }
 }

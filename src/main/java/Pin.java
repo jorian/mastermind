@@ -1,8 +1,9 @@
 public class Pin {
     protected int value;
+    private boolean isEvaluated;
 
     Pin() {
-
+        isEvaluated = false;
     }
 
     void setValue(int value) {
