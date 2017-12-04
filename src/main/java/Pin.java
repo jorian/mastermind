@@ -17,6 +17,10 @@ public class Pin {
         return value;
     }
 
+    public void setAsEvaluated() {
+        isEvaluated = true;
+    }
+
     @Override
     public boolean equals(Object o) {
         assert o instanceof Pin;

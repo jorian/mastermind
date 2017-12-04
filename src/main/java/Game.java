@@ -34,6 +34,19 @@ public class Game {
     public Score evaluateGuess(Code guess) {
         if (round <= 12) {
             Score result = new Score();
+
+            for (int i = 0; i < 4; i++) {
+                Pin guessPin = guess.get()[i];
+                Pin secretPin = secretCode.get()[i];
+
+                if (guessPin.equals(secretPin)) {
+                    secretPin.setAsEvaluated();
+                    result.addPin(1);
+                }
+            }
+
+
+
             result.addPin(0);
             round++;
             return result;

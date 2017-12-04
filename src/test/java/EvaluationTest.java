@@ -34,9 +34,6 @@ public class EvaluationTest {
         Score actual = game.evaluateGuess(guess);
 
         assertEquals(expected, actual);
-
-
-        System.out.println(game.getSecretCode().toString());
     }
 
     class MockGame extends Game {
