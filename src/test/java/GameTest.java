@@ -26,7 +26,7 @@ public class GameTest {
     public void gameCannotHaveMoreThanTwelveRounds() {
         Game game = new Game();
 
-        for (int i = 0; i <= 13; i++) { //play 13 rounds
+        for (int i = 0; i <= 13; i++) { //play 14 rounds
             Code code = new Code();
             code.set("1234");
             game.evaluateGuess(code);
@@ -47,6 +47,7 @@ public class GameTest {
     @Test
     public void scoreShouldReturnOneWhitePin() {
         Game game = new MockGame();
+
         Code guessCode = new Code();
         guessCode.set("4567");
 
@@ -54,9 +55,6 @@ public class GameTest {
         expected.addPin(0);
 
         Score actual = game.evaluateGuess(guessCode);
-
-        System.out.println("Actual:   " + actual.toString());
-        System.out.println("Expected: " + expected.toString());
 
         assertTrue(expected.equals(actual));
     }

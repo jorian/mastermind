@@ -194,4 +194,100 @@ public class EvaluationTest {
 
         assertTrue(actual.equals(expected));
     }
+
+    @Test
+    public void case_7() {
+        /*
+        The score should have 0 red pins and 2 white pins.
+
+        secret code:  1224
+        guessed code: 6227
+
+        '2' and '2' are both on the same position, rest is not in secret code.
+         */
+
+        String guessString = "6227";
+
+        Score expected = new Score();
+        expected.addPin(1);
+        expected.addPin(1);
+
+        Code secret = new Code();
+        secret.set("1224");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
+
+        Code guess = new Code();
+        guess.set(guessString);
+
+        Score actual = game.evaluateGuess(guess);
+
+        assertTrue(actual.equals(expected));
+    }
+
+    @Test
+    public void case_8() {
+        /*
+        The score should have 0 red pins and 3 white pins.
+
+        secret code:  1224
+        guessed code: 2612
+
+        '2' and '2' and '1' are all on a different position, rest is not in secret code.
+         */
+
+        String guessString = "2612";
+
+        Score expected = new Score();
+        expected.addPin(0);
+        expected.addPin(0);
+        expected.addPin(0);
+
+        Code secret = new Code();
+        secret.set("1224");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
+
+        Code guess = new Code();
+        guess.set(guessString);
+
+        Score actual = game.evaluateGuess(guess);
+
+        assertTrue(actual.equals(expected));
+    }
+
+    @Test
+    public void case_9() {
+        /*
+        The score should have 0 red pins and 4 white pins.
+
+        secret code:  1224
+        guessed code: 2412
+
+        all pins are in secret, but not on same position.
+         */
+
+        String guessString = "2412";
+
+        Score expected = new Score();
+        expected.addPin(0);
+        expected.addPin(0);
+        expected.addPin(0);
+        expected.addPin(0);
+
+        Code secret = new Code();
+        secret.set("1224");
+
+        Game game = new Game();
+        game.setSecretCode(secret);
+
+        Code guess = new Code();
+        guess.set(guessString);
+
+        Score actual = game.evaluateGuess(guess);
+
+        assertTrue(actual.equals(expected));
+    }
 }
