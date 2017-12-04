@@ -69,6 +69,7 @@ public class Game {
                         if (guessPin.equals(secretPin)) {
                             result.addPin(0);
                             secretPin.setAsEvaluated();
+                            break;
                         }
                     }
                 }
