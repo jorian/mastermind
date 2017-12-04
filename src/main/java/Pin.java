@@ -21,6 +21,10 @@ public class Pin {
         isEvaluated = true;
     }
 
+    public boolean isEvaluated() {
+        return isEvaluated;
+    }
+
     @Override
     public boolean equals(Object o) {
         assert o instanceof Pin;
