@@ -1,3 +1,5 @@
+package model;
+
 public class ScorePin extends Pin {
 
     @Override

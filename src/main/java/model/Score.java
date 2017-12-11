@@ -1,3 +1,5 @@
+package model;
+
 public class Score {
     private ScorePin[] score;
     private int nPins;
@@ -25,6 +27,17 @@ public class Score {
             score[i] = scorePin;
         }
         return this;
+    }
+
+    public boolean isWinningScore() {
+        for (int i = 0; i < 4; i++) {
+            if (score[i] == null || score[i].value != 1) {
+                System.out.println("Not winning score");
+                return false;
+
+            }
+        }
+        return true;
     }
 
     @Override

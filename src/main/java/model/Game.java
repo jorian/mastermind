@@ -1,12 +1,22 @@
+package model;
+
 import java.util.Random;
 
 public class Game {
     protected Code secretCode;
     private int round;
+    private boolean correctCode;
 
-    Game() {
+    public Game() {
         setSecretCode(generateRandomCode());
         round = 0;
+    }
+
+    public boolean gameOver() {
+        if (correctCode) {
+            System.out.println("You win!");
+        }
+        return (correctCode && round < 13);
     }
 
     public Code getSecretCode() {
@@ -33,9 +43,16 @@ public class Game {
     }
 
     /*
-    Evaluates the guess with the secretcode. Returns the Score containing the right amount of ScorePins.
+    Evaluates the guess with the secretcode. Returns the model.Score containing the right amount of ScorePins.
      */
     public Score evaluateGuess(Code guess) {
+        System.out.println(secretCode.toString());
+
+        // create a copy to prevent evaluation problems
+        // (pin would have stayed as evaluated but it should reset every guess)
+        Code secretEvalCode = new Code();
+        secretEvalCode.set(secretCode.toString());
+
         if (round <= 12) {
             Score result = new Score();
 
@@ -45,7 +62,7 @@ public class Game {
              */
             for (int i = 0; i < 4; i++) {
                 Pin guessPin = guess.get()[i];
-                Pin secretPin = secretCode.get()[i];
+                Pin secretPin = secretEvalCode.get()[i];
 
                 if (guessPin.equals(secretPin)) {
                     secretPin.setAsEvaluated();
@@ -60,7 +77,7 @@ public class Game {
              */
 
             for (int i = 0; i < 4; i++) {
-                Pin secretPin = secretCode.get()[i];
+                Pin secretPin = secretEvalCode.get()[i];
 
                 if (!secretPin.isEvaluated()) {
                     for (int j = 0; j < 4; j++) {
@@ -73,9 +90,12 @@ public class Game {
                         }
                     }
                 }
-
-
             }
+
+            if (result.isWinningScore()) {
+                correctCode = true;
+            }
+
             round++;
             return result;
         } else

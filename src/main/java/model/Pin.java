@@ -1,3 +1,5 @@
+package model;
+
 public class Pin {
     protected int value;
     private boolean isEvaluated;

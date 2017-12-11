@@ -1,11 +1,13 @@
+package model;
+
 public class Code {
     private Pin[] code;
 
-    Code() {
+    public Code() {
 
     }
 
-    void set(String codeString) {
+    public void set(String codeString) {
         code = new Pin[4];
         char[] codeChars = codeString.toCharArray();
 

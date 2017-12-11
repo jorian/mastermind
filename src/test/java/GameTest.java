@@ -1,3 +1,6 @@
+import model.Code;
+import model.Game;
+import model.Score;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
